@@ -1,6 +1,58 @@
-git init
-git add index.html
-git commit -m "İlk yükleme"
-git branch -M main
-git remote add origin https://github.com/KullanıcıAdın/darwin-love-site.git
-git push -u origin main
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darwin Temalı Aşk Sitesi</title>
+    <style>
+        body {
+            background-color: #ffcc00;
+            text-align: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            overflow: hidden;
+        }
+        h1 {
+            color: #ff5733;
+            font-size: 36px;
+            margin-top: 50px;
+        }
+        .darwin {
+            width: 300px;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .hearts {
+            position: absolute;
+            width: 50px;
+            animation: floatUp 3s infinite ease-in-out;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-300px) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Metehan (Aşkın) seni çok ama çok seviyor..</h1>
+    <img src="https://static.wikia.nocookie.net/gumball/images/7/78/Darwin_Watterson.png" class="darwin" alt="Darwin">
+    <audio autoplay loop>
+        <source src="https://www.myinstants.com/media/sounds/the-amazing-world-of-gumball-intro.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        function createHeart() {
+            let heart = document.createElement("img");
+            heart.src = "https://upload.wikimedia.org/wikipedia/commons/e/ec/Red_heart.svg";
+            heart.className = "hearts";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = "100%";
+            heart.style.width = "50px";
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 3000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
+
